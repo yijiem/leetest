@@ -2,7 +2,9 @@
 // Created by Yijie Ma on 9/29/16.
 //
 
-#include "leetcode.h"
+#include <vector>
+
+using namespace std;
 
 namespace {
 class Solution {
@@ -68,49 +70,4 @@ public:
         return p;
     }
 };
-
-TEST_F(Leetcode, num_of_islands_2_basic) {
-    int m = 3;
-    int n = 3;
-    vector<pair<int, int>> positions = {{0,0}, {0,1}, {1,2}, {2,1}};
-    Solution so;
-    vector<int> res = so.numIslands2(m, n, positions);
-    ASSERT_THAT(res, ElementsAre(1, 1, 2, 3));
-}
-
-TEST_F(Leetcode, num_of_islands_2_empty) {
-    int m = 3;
-    int n = 3;
-    vector<pair<int, int>> positions = {};
-    Solution so;
-    vector<int> res = so.numIslands2(m, n, positions);
-    ASSERT_THAT(res, ElementsAre());
-}
-
-TEST_F(Leetcode, num_of_islands_2_all_separate) {
-    int m = 3;
-    int n = 3;
-    vector<pair<int, int>> positions = {{0, 0}, {0, 2}, {1, 1}, {2, 0}, {2, 2}};
-    Solution so;
-    vector<int> res = so.numIslands2(m, n, positions);
-    ASSERT_THAT(res, ElementsAre(1, 2, 3, 4, 5));
-}
-
-TEST_F(Leetcode, num_of_islands_2_grow) {
-    int m = 3;
-    int n = 3;
-    vector<pair<int, int>> positions = {{0, 0}, {0, 1}, {0, 2}, {1, 0}, {1, 1}, {1, 2}, {2, 0}, {2, 1}, {2, 2}};
-    Solution so;
-    vector<int> res = so.numIslands2(m, n, positions);
-    ASSERT_THAT(res, ElementsAre(1, 1, 1, 1, 1, 1, 1, 1, 1));
-}
-
-TEST_F(Leetcode, num_of_islands_2_reverse_grow) {
-    int m = 3;
-    int n = 3;
-    vector<pair<int, int>> positions = {{0, 0}, {2, 2}, {0, 1}, {2, 1}, {0, 2}, {2, 0}, {1, 0}, {1, 2}, {1, 1}};
-    Solution so;
-    vector<int> res = so.numIslands2(m, n, positions);
-    ASSERT_THAT(res, ElementsAre(1, 2, 2, 2, 2, 2, 1, 1, 1));
-}
 } // namespace

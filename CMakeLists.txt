@@ -40,13 +40,13 @@ set_target_properties(libgmock PROPERTIES
 
 # I couldn't make it work with INTERFACE_INCLUDE_DIRECTORIES
 include_directories("${source_dir}/googletest/include"
-                    "${source_dir}/googlemock/include")
-
+                    "${source_dir}/googlemock/include"
+                    src
+                    test)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp src/num_of_islands_2.cpp src/leetcode.h)
-add_executable(algorithm ${SOURCE_FILES})
+add_executable(algorithm main.cpp src/num_of_islands_2.h src/longest_consecutive_sequence.h test/num_of_islands_2_test.cpp test/longest_consecutive_sequence_test.cpp)
 
 target_link_libraries(algorithm
                       libgtest
