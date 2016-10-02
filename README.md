@@ -1,2 +1,10 @@
 # leetest
-Solution for leetcode problems with gtest
+
+### How to run
+```
+mkdir build
+cd build
+cmake ..
+cmake --build . --target algorithm
+./algorithm
+```
