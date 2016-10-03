@@ -7,12 +7,15 @@
 
 using namespace std;
 
+namespace {
+// there is a better solution,
+// go check this out: https://discuss.leetcode.com/topic/15383/simple-o-n-with-explanation-just-walk-each-streak
 class Solution {
 private:
     std::unordered_set<int> iterate_set_;
     std::unordered_set<int> kick_out_set_;
 public:
-    int longestConsecutive(vector<int>& nums) {
+    int longestConsecutive(vector<int> &nums) {
         for (int i : nums) {
             iterate_set_.insert(i);
             kick_out_set_.insert(i);
@@ -32,15 +35,23 @@ public:
     }
 
     int search(int num) { // search and kick out in kick_out_set_
-        int length = 0;
-        int count = 0;
-        do {
-            if (kick_out_set_.erase(num + count)) ++length;
-            if (kick_out_set_.erase(num - count)) ++length;
+        int length = 1;
+        int count = 1;
+        kick_out_set_.erase(num);
+        while (kick_out_set_.find(num + count) != kick_out_set_.end()) {
+            kick_out_set_.erase(num + count);
             ++count;
-        } while (kick_out_set_.find(num + count) != kick_out_set_.end() ||
-                 kick_out_set_.find(num - count) != kick_out_set_.end());
+            ++length;
+        }
+
+        count = 1;
+        while (kick_out_set_.find(num - count) != kick_out_set_.end()) {
+            kick_out_set_.erase(num - count);
+            ++count;
+            ++length;
+        }
 
         return length;
     }
 };
+} // namespace

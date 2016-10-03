@@ -10,7 +10,6 @@ using namespace std;
 using ::testing::ElementsAre;
 
 namespace {
-
 class NumOfIslands2Test : public ::testing::Test {
 protected:
     NumOfIslands2Test() {};
