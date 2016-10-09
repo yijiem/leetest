@@ -5,6 +5,9 @@
 
 305 number of islands 2
 
+### Other algorithms
+mergesort bottom up
+
 ### How to run
 ```
 mkdir build
