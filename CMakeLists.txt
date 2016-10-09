@@ -46,7 +46,7 @@ include_directories("${source_dir}/googletest/include"
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-add_executable(algorithm main.cpp src/num_of_islands_2.h src/longest_consecutive_sequence.h test/num_of_islands_2_test.cpp test/longest_consecutive_sequence_test.cpp)
+add_executable(algorithm main.cpp src/num_of_islands_2.h src/longest_consecutive_sequence.h test/num_of_islands_2_test.cpp test/longest_consecutive_sequence_test.cpp src/mergesort_bu.h test/mergesort_bu_test.cpp)
 
 target_link_libraries(algorithm
                       libgtest
